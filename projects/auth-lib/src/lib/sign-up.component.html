@@ -1,0 +1,39 @@
+    <div class="clr-row clr-justify-content-start">
+      <div class="clr-col-3">
+      <form clrForm [formGroup]="signUpForm" (ngSubmit)="signup()" class="form-background">
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-md-3">Username</label>
+          <input class="clr-col-12 clr-col-md-9" clrInput type="text" name="username" placeholder="username" formControlName="username" />
+        </clr-input-container>
+        <clr-password-container>
+          <label class="clr-col-12 clr-col-md-3">Password</label>
+          <input class="clr-col-12 clr-col-md-9" type="password" name="password" clrPassword placeholder="password" formControlName="password" />
+        </clr-password-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-md-3">First Name</label>
+          <input class="clr-col-12 clr-col-md-9" clrInput type="text" name="firstName" placeholder="firstName" formControlName="firstName" />
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-md-3">Last Name</label>
+          <input class="clr-col-12 clr-col-md-9" clrInput type="text" name="lastName" placeholder="lastName" formControlName="lastName" />
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-12 clr-col-md-3">Email</label>
+          <input class="clr-col-12 clr-col-md-9" clrInput type="email" name="emailId" placeholder="Email" formControlName="emailId" [email]="true"/>
+        </clr-input-container>
+        <clr-select-container>
+          <label class="clr-col-12 clr-col-md-3">Role</label>
+          <select class="clr-col-12 clr-col-md-9" clrSelect name="role" formControlName="role">
+            <option value="PARTNER">Partner</option>
+            <option value="CUSTOMER">Customer</option>
+            <option value="MANAGED_SERVICE_ADMIN">Managed Service Admin</option>
+          </select>
+        </clr-select-container>
+        <br><br>
+        <div>
+          <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">SignUp</button>
+          <a class="btn" href="/login">Cancel</a>
+        </div>
+      </form>
+      </div>
+    </div>

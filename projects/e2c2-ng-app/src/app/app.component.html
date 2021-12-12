@@ -1,0 +1,71 @@
+<clr-main-container *ngIf="authenticated()">
+  <clr-header class="header-6">
+    <div class="branding">
+      <a href="/home" class="nav-link nav-icon-text">
+        <clr-icon shape="network-globe" size="24"></clr-icon>
+        <span class="title">E2C2</span>
+      </a>
+    </div>
+    <div class="header-actions header-actions--overflow">
+      <a href="/home" class="nav-link nav-icon">
+        <clr-icon shape="home" size="24"></clr-icon>
+      </a>
+      <a href="javascript://" class="nav-link nav-icon">
+        <clr-icon shape="search" size="24"></clr-icon>
+      </a>
+      <a href="javascript://" class="nav-link nav-icon">
+        <clr-icon shape="help-info" size="24"></clr-icon>
+      </a>
+      <a href="javascript://" class="nav-link nav-icon">
+        <clr-icon shape="bell" size="24"></clr-icon>
+      </a>
+      <clr-dropdown [clrCloseMenuOnItemClick]="false">
+        <button clrDropdownTrigger aria-label="open user profile">
+          {{user.name}}
+          <clr-icon shape="angle down"></clr-icon>
+        </button>
+        <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+          <a href="javascript://" aria-label="open user profile" clrDropdownItem><clr-icon shape="user" size="24" class="is-solid is-info"></clr-icon></a>
+          <a href="javascript://" (click)="logout()" aria-label="logout user" clrDropdownItem><clr-icon shape="logout" size="24" class="is-solid is-info"></clr-icon></a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+  </clr-header>
+  <nav class="subnav" [clr-nav-level]="1">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <div class="divider" role="separator" aria-hidden="true"></div>
+      </li>
+      <li *ngIf="user.authority == 'MANAGED_SERVICE_ADMIN'" class="nav-item">
+        <a class="nav-link" href="/customers">Customers</a>
+      </li>
+      <li *ngIf="user.authority == 'MANAGED_SERVICE_ADMIN'" class="nav-item">
+        <a class="nav-link">VPNs</a>
+      </li>
+      <li *ngIf="user.authority == 'MANAGED_SERVICE_ADMIN'" class="nav-item">
+        <a class="nav-link" href="/pods">PODs</a>
+      </li>
+      <li *ngIf="user.authority == 'MANAGED_SERVICE_ADMIN'" class="nav-item">
+        <a class="nav-link" href="/phub">Performance Hub</a>
+      </li>
+      <li *ngIf="user.authority == 'CUSTOMER'" class="nav-item">
+        <a class="nav-link" href="/connections">Connections</a>
+      </li>
+      <li *ngIf="user.authority == 'CUSTOMER'" class="nav-item">
+        <a class="nav-link" href="/peers">Peers</a>
+      </li>
+      <li *ngIf="user.authority == 'CUSTOMER'" class="nav-item">
+        <a class="nav-link" href="/routes">Routes</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-container">
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</clr-main-container>
+<router-outlet *ngIf="!authenticated()"></router-outlet>

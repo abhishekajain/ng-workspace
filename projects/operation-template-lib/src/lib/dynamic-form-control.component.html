@@ -1,0 +1,27 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="formControlBase.controlType">
+
+    <clr-input-container *ngSwitchCase="'textbox'">
+      <label class="clr-col-12 clr-col-md-3" [attr.for]="formControlBase.key">{{formControlBase.label}}</label>
+      <input class="clr-col-12 clr-col-md-9" clrInput [type]="formControlBase.type" [name]="formControlBase.key" [formControlName]="formControlBase.key" />
+    </clr-input-container>
+
+    <clr-password-container *ngSwitchCase="'password'">
+      <label class="clr-col-12 clr-col-md-3" [attr.for]="formControlBase.key">{{formControlBase.label}}</label>
+      <input class="clr-col-12 clr-col-md-9" clrPassword [type]="formControlBase.type" [name]="formControlBase.key"  [formControlName]="formControlBase.key" />
+    </clr-password-container>
+
+    <clr-input-container *ngSwitchCase="'email'">
+      <label class="clr-col-12 clr-col-md-3" [attr.for]="formControlBase.key">{{formControlBase.label}}</label>
+      <input class="clr-col-12 clr-col-md-9" clrInput [type]="formControlBase.type" [name]="formControlBase.key"  [formControlName]="formControlBase.key" [email]="true"/>
+    </clr-input-container>
+
+    <clr-select-container *ngSwitchCase="'select'">
+      <label class="clr-col-12 clr-col-md-3" [attr.for]="formControlBase.key">{{formControlBase.label}}</label>
+      <select class="clr-col-12 clr-col-md-9" clrSelect [name]="formControlBase.key"  [formControlName]="formControlBase.key">
+        <option *ngFor="let opt of formControlBase.options" [value]="opt.key">{{opt.value}}</option>>
+      </select>
+    </clr-select-container>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+{
+  "name": "auth-lib",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^11.1.0",
+    "@angular/core": "^11.1.0",
+    "@cds/core": "^5.0.0",
+    "@clr/angular": "^5.0.0",
+    "@clr/icons": "^5.0.0",
+    "@clr/ui": "^5.0.0",
+    "@webcomponents/webcomponentsjs": "^2.5.0"    
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}

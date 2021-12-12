@@ -1,0 +1,12 @@
+<ng-template [ngIf]="viewTypeInput == viewType.CONNECTION">
+  <clr-icon shape="connect" size="24" class="is-solid is-info"></clr-icon>&nbsp;&nbsp;<b>{{data['from']['name']}}</b> connection via {{data['from']['via']}} to <b>RPN at {{data['to']}}</b> {{data['data']}} Mbps&nbsp;
+</ng-template>
+<ng-template [ngIf]="viewTypeInput == viewType.CUSTOMER">
+  <clr-icon shape="user" size="24" class="is-solid is-info"></clr-icon>&nbsp;&nbsp;<b>{{data['firstName']}} {{data['lastName']}}&nbsp;</b>
+</ng-template>
+<ng-template [ngIf]="viewTypeInput == viewType.E2C2POD">
+  <clr-icon shape="user" size="24" class="is-solid is-info"></clr-icon>&nbsp;&nbsp;<b>{{data['name']}} {{data['location']}}&nbsp;</b>
+</ng-template>
+<ng-template [ngIf]="viewTypeInput == viewType.PERFORMANCEHUB">
+  <clr-icon shape="user" size="24" class="is-solid is-info"></clr-icon>&nbsp;&nbsp;<b>{{data['name']}} </b>
+</ng-template>

@@ -1,0 +1,260 @@
+{
+  "authenticate": {
+    "username": "admin",
+    "password": "admin"
+  },
+  "user": {
+    "id": 1,
+    "role": "admin",
+    "userName": "admin",
+    "name": "admin",
+    "fName": "Abhishek",
+    "lName": "Jain",
+    "eMail": "noreply@e2c2.com",
+    "authorities": [
+      {
+        "authority": "MANAGED_SERVICE_ADMIN"
+      }
+    ]
+  },
+  "customersite": [
+    {
+      "userName": "customer1",
+      "siteName": "sanjose",
+      "vpnName": "customer1VPN"
+    },
+    {
+      "userName": "customer2",
+      "siteName": "sanfrancisco",
+      "vpnName": "customer2VPN"
+    }
+  ],
+  "e2c2PodRouterInterface": [
+    {
+      "name": "Pod1intf-1",
+      "operation": "create",
+      "podName": "pod1",
+      "vpnName": "customer1VPN",
+      "ipPrefix": "10.0.1.5/24"
+    }
+  ],
+  "customerSiteRoute": [
+    {
+      "name": "customer1",
+      "operation": "create",
+      "podName": "pod1",
+      "vpnName": "customer1VPN",
+      "routes": [
+        {
+          "destPrefix": "10.0.1.0/24",
+          "nexHop": "10.0.1.4"
+        }
+      ]
+    }
+  ],
+  "vpc": [
+    {
+      "name": "customer1",
+      "cloudType": "aws",
+      "vpcId": "awsVpcId1",
+      "operation": "create",
+      "cidrBlocks": [
+        {
+          "cidr": "10.0.0.0/24"
+        }
+      ]
+    }
+  ],
+  "vpcSubnets": [
+    {
+      "name": "customer1",
+      "operation": "create",
+      "vpcId": "awsVpcId1",
+      "cidrSubnets": [
+        {
+          "cidr": "10.0.1.0/24"
+        }
+      ]
+    }
+  ],
+  "SiteStatistics": [
+    {
+      "userName": "customer1",
+      "siteName": "sanjose",
+      "operation": "get",
+      "vpnName": "customer1VPN",
+      "txBytes": "",
+      "txPackets": "",
+      "rxBytes": "",
+      "rxPackets": ""
+    }
+  ],
+  "SiteCloudStatistics": [
+    {
+      "userName": "customer1",
+      "siteName": "sanjose",
+      "cloudType": "aws",
+      "vpcId": "awsVpc1",
+      "operation": "get",
+      "txBytes": "",
+      "txPackets": "",
+      "rxBytes": "",
+      "rxPackets": ""
+    }
+  ],
+  "connections": [
+    {
+      "id": 1,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 2,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 3,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 4,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 5,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 6,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 7,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 8,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 9,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 10,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 11,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 12,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    },
+    {
+      "id": 13,
+      "from": {
+        "name": "Name 1",
+        "via": "IPsec"
+      },
+      "to": "Name 2",
+      "data": "100"
+    }
+  ],
+  "performancehub": {
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost:3000/performancehub{?page,size,sort}",
+        "templated" : true
+      },
+      "search" : {
+        "href" : "http://localhost:3000/performancehub/search"
+      }
+    },
+    "_embedded" : {
+      "performancehub" : [ {
+        "name" : "Frodo",
+        "id" : 1,
+        "_links" : {
+          "self" : {
+            "href" : "http://localhost:3000/performancehub/1"
+          }
+        }
+      },{
+        "name" : "Baggins",
+        "id" : 2,
+        "_links" : {
+          "self" : {
+            "href" : "http://localhost:3000/performancehub/2"
+          }
+        }
+      } ]
+    },
+    "page" : {
+      "size" : 20,
+      "totalElements" : 2,
+      "totalPages" : 1,
+      "number" : 0
+    }
+  }
+}

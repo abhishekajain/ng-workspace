@@ -1,0 +1,29 @@
+<clr-datagrid>
+	<clr-dg-row *clrDgItems="let data of viewData" [clrDgItem]="data">
+		<clr-dg-cell>
+		<div class="clr-row clr-justify-content-center">
+		 <div class="clr-col">
+		    <div class="card" style="border: none; box-shadow: none;">
+		      <div class="card-block">
+		        <div class="card-text">
+              <lib-view-data [data]="data" [viewTypeInput]="viewTypeInput"></lib-view-data>
+              <button type="button" class="btn btn-icon btn-primary" aria-label="edit" (click)="onEdit(data)">
+                <clr-icon shape="pencil"></clr-icon>
+              </button>
+              <button type="button" class="btn btn-icon btn-danger" aria-label="Delete" (click)="onDelete(data)">
+                <clr-icon shape="trash"></clr-icon>
+              </button>
+		        </div>
+		      </div>
+		    </div>
+		 </div>
+		</div>
+		</clr-dg-cell>
+	</clr-dg-row>
+	<clr-dg-footer>
+	  <clr-dg-pagination #pagination [clrDgPageSize]="5">
+	    <clr-dg-page-size [clrPageSizeOptions]="[5,10,20]">{{viewTypeInput}} per page</clr-dg-page-size>
+	    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} {{viewTypeInput}}
+	  </clr-dg-pagination>
+	</clr-dg-footer>
+</clr-datagrid>

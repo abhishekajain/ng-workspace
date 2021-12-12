@@ -1,0 +1,100 @@
+<div class="clr-row clr-justify-content-center">
+	<div class="clr-col-6">
+	<clr-timeline>
+	  <clr-timeline-step [clrState]="createState">
+	    <clr-timeline-step-header>Create</clr-timeline-step-header>
+	    <clr-timeline-step-title>Create {{viewTypeInput}}</clr-timeline-step-title>
+	    <clr-timeline-step-description>
+	    <button *ngIf="createState == timelineStatusType.NOT_STARTED" type="button" class="btn btn-icon btn-primary" aria-label="next" (click)="createStart()">
+	    	<clr-icon shape="angle right"></clr-icon>
+	  	</button>
+		</clr-timeline-step-description>
+	  </clr-timeline-step>
+	  <clr-timeline-step [clrState]="approveState">
+	    <clr-timeline-step-header>Approve</clr-timeline-step-header>
+	    <clr-timeline-step-title>Approve {{viewTypeInput}}</clr-timeline-step-title>
+	  </clr-timeline-step>
+	  <clr-timeline-step [clrState]="summaryState">
+	    <clr-timeline-step-header>Summary</clr-timeline-step-header>
+	    <clr-timeline-step-title>{{viewTypeInput}} Summary</clr-timeline-step-title>
+	  </clr-timeline-step>
+	</clr-timeline>
+	</div>
+</div>
+<div class="clr-row clr-justify-content-center" *ngIf="createState == timelineStatusType.CURRENT">
+  <div class="clr-col-6">
+
+    <div class="btn-group">
+      <div class="radio btn" *ngFor="let viewFormType of viewFormTypes; index as i;">
+        <input type="radio" [(ngModel)]="createFormType" id="{{ 'connectionType-' + i }}" value="{{viewFormType}}" />
+        <label for="{{ 'connectionType-' + i }}">{{viewFormType}}</label>
+      </div>
+    </div>
+
+    <div *ngFor="let viewFormGroup of viewFormGroups | keyvalue;" id="{{ 'formDiv-' + viewFormGroup.key }}">
+
+    <form clrForm [formGroup]="viewFormGroup.value" class="form-background" *ngIf="createFormType == viewFormGroup.key">
+
+      <lib-form-control *ngFor="let formControlBase of viewFormControls.get(viewFormGroup.key)" [formControlBase]="formControlBase" [form]="viewFormGroup.value"></lib-form-control>
+
+      <br><br>
+      <div>
+        <button type="button" class="btn btn-icon btn-primary" aria-label="next" [disabled]="!viewFormGroup.value.valid" (click)="create(viewFormGroup.key)">
+          <clr-icon shape="angle right"></clr-icon>
+        </button>
+      </div>
+    </form>
+
+    </div>
+  </div>
+</div>
+<div class="clr-row clr-justify-content-center" *ngIf="approveState == timelineStatusType.CURRENT">
+  <div class="clr-col-6">
+    <div class="clr-row">
+      <div class="clr-col-10">
+        <div class="card">
+          <div class="card-header">
+            <span style="font-weight: bold;">{{viewTypeInput}}</span>
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <div *ngFor="let formControlBase of viewFormControls.get(createFormType)">{{formControlBase.label}}:{{viewFormGroups.get(createFormType).get(formControlBase.key).value}}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-icon" aria-label="back" (click)="backFromApprove(createFormType)">
+              <clr-icon shape="angle left"></clr-icon>
+            </button>
+            <button type="button" class="btn btn-icon btn-primary" aria-label="approve" (click)="approve(createFormType)">
+              <clr-icon shape="check"></clr-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="clr-row clr-justify-content-center" *ngIf="summaryState == timelineStatusType.CURRENT">
+  <div class="clr-col-6">
+    <div class="clr-row">
+      <div class="clr-col-10">
+        <div class="card">
+          <div class="card-header">
+            <span style="font-weight: bold;">{{viewTypeInput}}</span>
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <div *ngFor="let formControlBase of viewFormControls.get(createFormType)">{{formControlBase.label}}:{{viewFormGroups.get(createFormType).get(formControlBase.key).value}}</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-icon btn-primary" aria-label="approve" (click)="done(createFormType)">
+              <clr-icon shape="check"></clr-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

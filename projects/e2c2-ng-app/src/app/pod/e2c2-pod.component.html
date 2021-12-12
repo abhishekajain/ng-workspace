@@ -1,0 +1,11 @@
+<div *ngIf="isView" class="clr-row clr-justify-content-center">
+  <div class="clr-col-6">
+    <button type="button" class="btn btn-icon btn-primary" (click)="onAdd()">
+      <clr-icon shape="plus"></clr-icon>
+    </button>
+  </div></div>
+<div *ngIf="isView" class="clr-row clr-justify-content-center">
+  <div class="clr-col-6">
+    <lib-view-template [viewTypeInput]="viewType.E2C2POD" [viewData]="viewData"></lib-view-template>
+  </div></div>
+<lib-create-template *ngIf="isCreate" [viewTypeInput]="viewType.E2C2POD" (newItemEvent)="addPod($event)"></lib-create-template>

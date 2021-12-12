@@ -1,0 +1,80 @@
+<div class="clr-row clr-justify-content-center">
+    <div class="clr-col-4">
+	    <div class="card">
+	      <div class="card-header">
+	        <clr-icon shape="connect" class="is-solid is-info" size="24"></clr-icon>&nbsp;<span style="font-weight: bold;">Connections</span>
+			<clr-signpost>
+			  <clr-signpost-content *clrIfOpen>
+			    <h3>Inventory Description</h3>
+			    <p>Inventory</p>
+			  </clr-signpost-content>
+			</clr-signpost>        
+	      </div>
+	      <div class="card-block">
+	        <div class="card-text">
+	          ...
+	        </div>
+	      </div>
+	    </div>
+    </div>
+    <div class="clr-col-4">
+	    <div class="card">
+	      <div class="card-header">
+	        <clr-icon shape="heart" class="is-solid is-info" size="24"></clr-icon>&nbsp;<span style="font-weight: bold;">Health</span>
+			<clr-signpost>
+			  <clr-signpost-content *clrIfOpen>
+			    <h3>User Description</h3>
+			    <p>User</p>
+			  </clr-signpost-content>
+			</clr-signpost> 		        
+	      </div>
+	      <div class="card-block">
+	        <div class="card-text">
+	          ...
+	        </div>
+	      </div>
+	    </div>
+    </div>
+</div>    
+<div class="clr-row clr-justify-content-center">    
+    <div class="clr-col-4">
+	    <div class="card">
+	      <div class="card-header">
+	        <clr-icon shape="cloud-traffic" class="is-info" size="24"></clr-icon>&nbsp;<span style="font-weight: bold;">Cloud Traffic</span>
+			<clr-signpost>
+			  <clr-signpost-content *clrIfOpen>
+			    <h3>VPC Description</h3>
+			    <p>VPC</p>
+			  </clr-signpost-content>
+			</clr-signpost> 	        
+	      </div>
+	      <div class="card-block">
+	      </div>
+	    </div>
+    </div>
+    <div class="clr-col-4">
+	    <div class="card">
+	      <div class="card-header">
+	        <clr-icon shape="cloud-traffic" class="is-info" size="24"></clr-icon>&nbsp;<span style="font-weight: bold;">Site Traffic</span>
+			<clr-signpost>
+			  <clr-signpost-content *clrIfOpen>
+			    <h3>VPC Description</h3>
+			    <p>VPC</p>
+			  </clr-signpost-content>
+			</clr-signpost> 	        
+	      </div>
+	      <div class="card-block">
+	        <div class="card-text">
+	        	<div class="progress-block">
+	        		<label>Overall Usage</label>
+	        		<clr-progress-bar [clrValue]="50" [clrLabeled]="true" [clrMax]="100"></clr-progress-bar>
+	        	</div>
+		        <div class="progress-block">
+		          <label>Link Above</label>
+				  <clr-progress-bar [clrValue]="90" [clrLabeled]="true" [clrMax]="100"></clr-progress-bar>		          
+		        </div>	        
+	        </div>
+	      </div>
+	    </div>
+    </div>    
+</div>

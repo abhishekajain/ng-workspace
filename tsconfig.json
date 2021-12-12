@@ -1,0 +1,44 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths": {
+      "auth-lib": [
+        "dist/auth-lib/auth-lib",
+        "dist/auth-lib"
+      ],
+      "dashboard-lib": [
+        "dist/dashboard-lib/dashboard-lib",
+        "dist/dashboard-lib"
+      ],
+      "operation-template-lib": [
+        "dist/operation-template-lib/auth-lib",
+        "dist/operation-template-lib"
+      ],
+      "shared-lib": [
+        "dist/shared-lib/shared-lib",
+        "dist/shared-lib"
+      ],
+      "vpc-lib": [
+        "dist/vpc-lib/vpc-lib",
+        "dist/vpc-lib"
+      ]
+    },
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  }
+}

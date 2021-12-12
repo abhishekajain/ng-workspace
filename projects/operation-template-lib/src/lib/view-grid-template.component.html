@@ -1,0 +1,28 @@
+<clr-datagrid [(clrDgSingleSelected)]="selected">
+  <clr-dg-action-bar>
+    <button type="button" class="btn btn-secondary" (click)="onEdit(selected)" [disabled]="!selected">
+      <clr-icon shape="pencil"></clr-icon> Edit
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onDelete(selected)" [disabled]="!selected">
+      <clr-icon shape="close"></clr-icon> Delete
+    </button>
+  </clr-dg-action-bar>
+
+  <ng-template [ngIf]="viewTypeInput == viewType.PERFORMANCEHUB">
+    <clr-dg-column [clrDgField]="'id'">ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+  </ng-template>
+
+  <clr-dg-row *clrDgItems="let data of viewData" [clrDgItem]="data">
+    <ng-template [ngIf]="viewTypeInput == viewType.PERFORMANCEHUB">
+      <clr-dg-cell>{{data.id}}</clr-dg-cell>
+      <clr-dg-cell>{{data.name}}</clr-dg-cell>
+    </ng-template>
+  </clr-dg-row>
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="5">
+      <clr-dg-page-size [clrPageSizeOptions]="[5,10,20]">{{viewTypeInput}} per page</clr-dg-page-size>
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} {{viewTypeInput}}
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>
